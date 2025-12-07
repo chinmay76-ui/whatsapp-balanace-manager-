@@ -1,0 +1,97 @@
+/* Global styles */
+:root {
+  --bg: #f2f4f8;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --primary: #0ea5a4;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Inter', sans-serif, system-ui, -apple-system;
+}
+
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.list-item {
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-card {
+  background: white;
+  padding: 20px;
+  width: 600px;
+  max-height: 70vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  position: relative;
+}
+
+.btn.danger {
+  background: #e63946;
+  color: white;
+}
+
+.btn.danger:hover {
+  background: #c92a34;
+}
+.loan-manager { max-width:1000px; margin:20px auto; background:#fff; padding:16px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+.row { display:flex; gap:20px; }
+.left { width:260px; }
+.add { flex:1; }
+.overall { margin-top:8px; font-weight:700; }
+.loan-list .loan-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #f2f2f2; align-items:center; }
+.loan-row .controls button { margin-left:6px; padding:6px 8px; border-radius:6px; background:#f5f5f5; border:none; cursor:pointer; }
+
