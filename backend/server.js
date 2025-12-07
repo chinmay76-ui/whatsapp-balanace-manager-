@@ -166,7 +166,8 @@ app.post('/api/friends/:friendId/deduct', async (req, res) => {
 
     const previousBalance = Number(friend.totalBalance || 0);
 
-    const tx = new Transaction({ friend: friend._id, amount: amt, note });
+    // create a debit transaction (explicit)
+    const tx = new Transaction({ friend: friend._id, type: 'debit', amount: amt, note });
     await tx.save();
 
     friend.totalBalance = previousBalance - amt;
@@ -213,8 +214,8 @@ app.post('/api/send/:friendId', async (req, res) => {
 
     const previousBalance = Number(friend.totalBalance || 0);
 
-    // FIXED TYPO: friend._id (was friend._1d before)
-    const tx = new Transaction({ friend: friend._id, amount: amt, note });
+    // create a debit transaction (explicit)
+    const tx = new Transaction({ friend: friend._id, type: 'debit', amount: amt, note });
     await tx.save();
 
     friend.totalBalance = previousBalance - amt;
