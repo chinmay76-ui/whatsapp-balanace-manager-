@@ -261,23 +261,27 @@ export default function LoanManager() {
         >
           Add Friend
         </button>
-        <button
-          type="button"
-          className="btn"
-          onClick={() => {
-            setNewName("");
-            setNewWhatsapp("");
-          }}
-          style={{
-            background: "#f0f0f0",
-            padding: "8px 12px",
-            borderRadius: 6,
-            border: "none",
-            cursor: "pointer",
-          }}
-        >
-          Clear
-        </button>
+       <button
+  type="button"
+  onClick={() => {
+    setNewName("");
+    setNewWhatsapp("");
+  }}
+  style={{
+    background: "#f3f4f6",      // light gray
+    padding: "8px 12px",
+    borderRadius: "6px",
+    border: "1px solid #d1d5db",
+    cursor: "pointer",
+    fontSize: "0.85rem",
+    transition: "0.2s ease",
+  }}
+  onMouseEnter={(e) => (e.target.style.background = "#e5e7eb")}
+  onMouseLeave={(e) => (e.target.style.background = "#f3f4f6")}
+>
+  Clear
+</button>
+
       </form>
 
       {/* Existing friends (select quickly) */}
@@ -452,21 +456,25 @@ export default function LoanManager() {
                 flex: "0 0 auto",
               }}
             >
-              <button
-                className="btn"
-                onClick={() => sendNotifyLoan(t._id)}
-                style={{
-                  padding: "6px 10px",
-                  borderRadius: 6,
-                  border: "1px solid #d1d5db",
-                  background: "#e5e7eb",
-                  cursor: "pointer",
-                  fontSize: "0.85rem",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                Notify
-              </button>
+             <button
+  onClick={() => sendNotifyLoan(t._id)}
+  style={{
+    padding: "6px 12px",
+    borderRadius: "6px",
+    background: "#8b5cf6",       // purple-500
+    border: "1px solid #7c3aed", // purple-600
+    color: "white",
+    cursor: "pointer",
+    fontSize: "0.85rem",
+    whiteSpace: "nowrap",
+    transition: "0.2s",
+  }}
+  onMouseEnter={(e) => (e.target.style.background = "#7c3aed")}
+  onMouseLeave={(e) => (e.target.style.background = "#8b5cf6")}
+>
+  Notify
+</button>
+
               <button
                 className="btn"
                 onClick={() => deleteLoan(t._id)}

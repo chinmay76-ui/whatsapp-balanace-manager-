@@ -309,7 +309,7 @@ Proceed ?`;
                       Debit amount: {fmtMoney(previewAmt)}
                     </div>
                     <div className="small" style={{ fontSize: "0.85rem" }}>
-                      Available after debit: {fmtMoney(previewAvailable)}
+                      Available balance: {fmtMoney(previewAvailable)}
                     </div>
                   </div>
                 )}
@@ -489,50 +489,27 @@ Proceed ?`;
                         Select
                       </label>
 
-                      <button
-                        className="btn"
-                        onClick={() => updateBalance(f._id)}
-                        style={{
-                          padding: "6px 10px",
-                          borderRadius: "6px",
-                          border: "1px solid #d1d5db",
-                          background: "#e5e7eb",
-                          cursor: "pointer",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        Update
-                      </button>
 
-                      <button
-                        className="btn"
-                        onClick={() => editSavedAmount(f._id, f.savedAmount)}
-                        style={{
-                          padding: "6px 10px",
-                          borderRadius: "6px",
-                          border: "1px solid #d1d5db",
-                          background: "#e5e7eb",
-                          cursor: "pointer",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        Edit Saved
-                      </button>
 
-                      <button
-                        className="btn"
-                        onClick={() => viewTransactions(f._id)}
-                        style={{
-                          padding: "6px 10px",
-                          borderRadius: "6px",
-                          border: "1px solid #d1d5db",
-                          background: "#e5e7eb",
-                          cursor: "pointer",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        History
-                      </button>
+
+                    <button
+  onClick={() => viewTransactions(f._id)}
+  style={{
+    padding: "6px 12px",
+    borderRadius: "6px",
+    background: "#8b5cf6",      // purple-500
+    border: "1px solid #7c3aed",// purple-600
+    color: "white",
+    cursor: "pointer",
+    fontSize: "0.8rem",
+    transition: "0.2s",
+  }}
+  onMouseEnter={(e) => (e.target.style.background = "#7c3aed")}
+  onMouseLeave={(e) => (e.target.style.background = "#8b5cf6")}
+>
+  History
+</button>
+
 
                       <button
                         className="btn"
