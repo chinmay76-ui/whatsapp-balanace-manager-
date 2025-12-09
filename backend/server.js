@@ -1,4 +1,4 @@
-// backend/server.js
+// backend/server.js (timezone fix: display dates in Asia/Kolkata)
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -176,8 +176,20 @@ app.post('/api/friends/:friendId/deduct', async (req, res) => {
 
     const todaySpent = await todaysSpent(friend._id);
 
+    // SERVER-SIDE TIMEZONE: format tx.date in Asia/Kolkata
+    const txDateStr = new Date(tx.date).toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+
     const messageText = [
-      `📅 *Date:* ${new Date(tx.date).toLocaleString()}`,
+      `📅 *Date:* ${txDateStr}`,
       `👤 Name: ${friend.name}`,
       ``,
       `💰 *Fixed Saved Amount:* ₹${friend.savedAmount}`,
@@ -222,7 +234,17 @@ app.post('/api/send/:friendId', async (req, res) => {
     friend.lastUpdatedAt = tx.date || new Date();
     await friend.save();
 
-    const txDateStr = new Date(tx.date).toLocaleString();
+    const txDateStr = new Date(tx.date).toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+
     const fixedSaved = Number(friend.savedAmount || 0);
     const todaySpent = await todaysSpent(friend._id);
 
